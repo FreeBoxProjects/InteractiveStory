@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.henrique.interactivestory.ui.StoryActivity"
+                android:background="@android:color/white">
+
+    <!-- Serve para criar um espaço entre as linhas semelhante ao letter-spacing do CSS (copiar) -->
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A viagem a saturno"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cleiton é um macaco muito loco que sempre sonhou em viajar pelo espaço, até que ele ganha uma chance, ele rouba uma nave e se aventura pelo espaço sideral"
+        android:id="@+id/textView2"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTINUAR"
+        android:id="@+id/textView4"
+        android:textSize="16sp"
+        android:textColor="#28abdb"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:layout_below="@+id/textView2"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView"
+        />
+
+
+
+</RelativeLayout>

@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.henrique.interactivestory.R;
 import com.example.henrique.interactivestory.model.Page;
+import com.example.henrique.interactivestory.model.Player;
 import com.example.henrique.interactivestory.model.Story;
 
 public class StoryActivity extends AppCompatActivity {
@@ -20,10 +22,12 @@ public class StoryActivity extends AppCompatActivity {
     private Story mStory = new Story();
     private ImageView mImageView;
     private TextView mTextView;
+    private TextView mPointsView;
     private Button mChoice1;
     private Button mChoice2;
     private String mName;
     private Page mCurrentPage;
+    private Player mPlayer;
 
 
     @Override
@@ -36,14 +40,18 @@ public class StoryActivity extends AppCompatActivity {
 
         mImageView = (ImageView)findViewById(R.id.storyImageView);
         mTextView = (TextView)findViewById(R.id.storyTextView);
+        mPointsView = (TextView)findViewById(R.id.pointsCount);
         mChoice1 = (Button)findViewById(R.id.choiceButton1);
         mChoice2 = (Button)findViewById(R.id.choiceButton2);
+        mPointsView = (TextView)findViewById(R.id.pointsCount);
+
+        mPlayer = new Player();
 
         loadPage(0);
     }
 
-    private void loadPage(int choice) {
-        mCurrentPage = mStory.getPage(choice);
+    private void loadPage(int atualPage) {
+        mCurrentPage = mStory.getPage(atualPage);
 
         Drawable drawable = getResources().getDrawable(mCurrentPage.getImageId());
         mImageView.setImageDrawable(drawable);
@@ -51,6 +59,8 @@ public class StoryActivity extends AppCompatActivity {
         String pageText = mCurrentPage.getText();
         pageText = String.format(pageText, mName);
         mTextView.setText(pageText);
+
+        mPointsView.setText(mPlayer.getPoints());
 
         if (mCurrentPage.isFinal()){
             mChoice1.setVisibility(View.INVISIBLE);
@@ -71,6 +81,12 @@ public class StoryActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     int nextPage = mCurrentPage.getChoice1().getNextPage();
+                    boolean isPoints = mCurrentPage.getChoice1().isPoints();
+                    if (isPoints) {
+                        int points = mCurrentPage.getChoice1().getPoints();
+                        mPlayer.addPoints(points);
+                    }
+                    mPlayer.setPage(nextPage);
                     loadPage(nextPage);
                 }
             });
@@ -79,6 +95,11 @@ public class StoryActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     int nextPage = mCurrentPage.getChoice2().getNextPage();
+                    boolean isPoints = mCurrentPage.getChoice2().isPoints();
+                    if (isPoints) {
+                        int points = mCurrentPage.getChoice2().getPoints();
+                        mPlayer.addPoints(points);
+                    }
                     loadPage(nextPage);
                 }
             });
