@@ -1,16 +1,15 @@
 package com.example.henrique.interactivestory.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.henrique.interactivestory.R;
 import com.example.henrique.interactivestory.model.Page;
@@ -26,7 +25,9 @@ public class StoryActivity extends AppCompatActivity {
     private Button mChoice1;
     private Button mChoice2;
     private String mName;
-    private Page mCurrentPage;
+    private Page mPage;
+    private int mCurrentPage = 0;
+    private int mPoints = 0;
     private Player mPlayer;
 
 
@@ -47,22 +48,22 @@ public class StoryActivity extends AppCompatActivity {
 
         mPlayer = new Player();
 
-        loadPage(0);
+        loadPage(mCurrentPage);
     }
 
     private void loadPage(int atualPage) {
-        mCurrentPage = mStory.getPage(atualPage);
+        mPage = mStory.getPage(atualPage);
 
-        Drawable drawable = getResources().getDrawable(mCurrentPage.getImageId());
+        Drawable drawable = getResources().getDrawable(mPage.getImageId());
         mImageView.setImageDrawable(drawable);
 
-        String pageText = mCurrentPage.getText();
+        String pageText = mPage.getText();
         pageText = String.format(pageText, mName);
         mTextView.setText(pageText);
 
-        mPointsView.setText(mPlayer.getPoints());
+        mPointsView.setText(mPoints + "");
 
-        if (mCurrentPage.isFinal()){
+        if (mPage.isFinal()){
             mChoice1.setVisibility(View.INVISIBLE);
             mChoice2.setText("PLAY AGAIN");
             mChoice2.setOnClickListener(new View.OnClickListener() {
@@ -74,19 +75,20 @@ public class StoryActivity extends AppCompatActivity {
         }
 
         else {
-            mChoice1.setText(mCurrentPage.getChoice1().getText());
-            mChoice2.setText(mCurrentPage.getChoice2().getText());
+            mChoice1.setText(mPage.getChoice1().getText());
+            mChoice2.setText(mPage.getChoice2().getText());
 
             mChoice1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int nextPage = mCurrentPage.getChoice1().getNextPage();
-                    boolean isPoints = mCurrentPage.getChoice1().isPoints();
+                    int nextPage = mPage.getChoice1().getNextPage();
+                    boolean isPoints = mPage.getChoice1().isPoints();
+                    int points = 0;
                     if (isPoints) {
-                        int points = mCurrentPage.getChoice1().getPoints();
-                        mPlayer.addPoints(points);
+                        int addPoints = mPage.getChoice1().getPoints();
+                        points += addPoints;
                     }
-                    mPlayer.setPage(nextPage);
+                    saveData(nextPage, points);
                     loadPage(nextPage);
                 }
             });
@@ -94,17 +96,34 @@ public class StoryActivity extends AppCompatActivity {
             mChoice2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int nextPage = mCurrentPage.getChoice2().getNextPage();
-                    boolean isPoints = mCurrentPage.getChoice2().isPoints();
+                    int nextPage = mPage.getChoice2().getNextPage();
+                    boolean isPoints = mPage.getChoice2().isPoints();
+                    int points = 0;
                     if (isPoints) {
-                        int points = mCurrentPage.getChoice2().getPoints();
-                        mPlayer.addPoints(points);
+                        int addPoints = mPage.getChoice2().getPoints();
+                        points += addPoints;
                     }
+                    saveData(nextPage, points);
                     loadPage(nextPage);
                 }
             });
         }
 
+
+    }
+
+    public void saveData(int page, int points) {
+        SharedPreferences sharedPreference = getSharedPreferences("story_info", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreference.edit();
+        editor.putInt("page", page);
+        editor.putInt("points", points);
+        editor.apply();
+
+        mCurrentPage = sharedPreference.getInt("page", 0);
+        mPlayer.setPage(mCurrentPage);
+        int addPoints = sharedPreference.getInt("points", 0);
+        mPoints += addPoints;
+        mPlayer.addPoints(addPoints);
 
     }
 

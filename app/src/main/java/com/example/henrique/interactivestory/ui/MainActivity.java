@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.henrique.interactivestory.R;
+import com.example.henrique.interactivestory.list.StoryList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startStory(String name) {
-        Intent intent = new Intent(this, StoryActivity.class);
+        Intent intent = new Intent(this, StoryList.class);
         // Utilizamos o getString para pegar a string nos valores strings.xml
         intent.putExtra(getString(R.string.key_name), name);
         startActivity(intent);
