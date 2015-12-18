@@ -29,9 +29,11 @@
             android:label="@string/title_activity_story"
             android:parentActivityName=".ui.MainActivity"
             android:screenOrientation="portrait" >
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
+
         </activity>
 
 

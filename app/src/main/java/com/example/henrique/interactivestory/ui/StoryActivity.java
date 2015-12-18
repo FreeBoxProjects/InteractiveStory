@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.henrique.interactivestory.R;
 import com.example.henrique.interactivestory.model.Page;
@@ -83,10 +84,21 @@ public class StoryActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     int nextPage = mPage.getChoice1().getNextPage();
                     boolean isPoints = mPage.getChoice1().isPoints();
+                    boolean isPointsToUse = mPage.getChoice1().isUsedPoints();
                     int points = 0;
                     if (isPoints) {
                         int addPoints = mPage.getChoice1().getPoints();
                         points += addPoints;
+                    }
+
+                    if (isPointsToUse) {
+                        int usePoints = mPage.getChoice1().getPointsToUse();
+                        if (mPoints >= usePoints) {
+                            points -= usePoints;
+                        } else {
+                            // Dizer ao usuário que ele não possui pontos suficientes
+                        }
+
                     }
                     saveData(nextPage, points);
                     loadPage(nextPage);
@@ -98,10 +110,20 @@ public class StoryActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     int nextPage = mPage.getChoice2().getNextPage();
                     boolean isPoints = mPage.getChoice2().isPoints();
+                    boolean isPointsToUse = mPage.getChoice2().isUsedPoints();
                     int points = 0;
                     if (isPoints) {
                         int addPoints = mPage.getChoice2().getPoints();
                         points += addPoints;
+                    }
+
+                    if (isPointsToUse) {
+                        int usePoints = mPage.getChoice2().getPointsToUse();
+                        if(mPoints >= usePoints) {
+                            points -= usePoints;
+                        }
+                    } else {
+                        // Dizer ao usuário que ele não possui pontos suficientes
                     }
                     saveData(nextPage, points);
                     loadPage(nextPage);

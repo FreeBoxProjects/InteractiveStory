@@ -13,6 +13,7 @@ public class Story {
         mPages[0] = new Page(
         R.drawable.page0,
         "On your return trip from studying Saturn's rings, you hear a distress signal that seems to be coming from the surface of Mars. It's strange because there hasn't been a colony there in years. Even stranger, it's calling you by name: \"Help me, %1$s, you're my only hope.\"",
+        // Iniciando a Choice adicionando pontos
         new Choice("Stop and investigate", 1,100),
         new Choice("Continue home to Earth", 2));
 
@@ -37,7 +38,8 @@ public class Story {
         mPages[4] = new Page(
         R.drawable.page4,
         "The rover is covered in dust and most of the solar panels are broken. But you are quite surprised to see the on-board system booted up and running. In fact, there is a message on the screen: \"%1$s, come to 28.543436, -81.369031.\" Those coordinates aren't far, but you don't know if your oxygen will last there and back.",
-        new Choice("Explore the coordinates", 5),
+        // Iniciando a Choice Retirando pontos
+        new Choice("Explore the coordinates", 5,0, 50),
         new Choice("Return to Earth", 6));
 
         mPages[5] = new Page(
