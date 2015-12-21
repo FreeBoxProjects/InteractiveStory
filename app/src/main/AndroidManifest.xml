@@ -9,8 +9,8 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".list.StoryList"
-            android:label="@string/title_activity_story_list" >
+            android:name=".ui.Initialize"
+            android:label="@string/title_activity_initialize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,25 +19,24 @@
         </activity>
 
         <activity
+            android:name=".list.StoryList"
+            android:label="@string/title_activity_story_list" >
+
+        </activity>
+        <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".ui.StoryActivity"
             android:label="@string/title_activity_story"
             android:parentActivityName=".ui.MainActivity"
             android:screenOrientation="portrait" >
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
-
         </activity>
-
-
-
     </application>
 
 </manifest>

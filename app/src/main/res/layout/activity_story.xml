@@ -38,7 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="#ffffff"
-        android:textColor="#28abdb"/>
+        android:textColor="#0099f9"/>
 
     <Button
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         android:layout_alignLeft="@+id/choiceButton2"
         android:layout_alignStart="@+id/choiceButton2"
         android:background="#ffffff"
-        android:textColor="#28abdb"/>
+        android:textColor="#0099f9"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp"
-        android:textColor="#28abdb"/>
+        android:textColor="#0099f9"/>
     <!-- Serve para criar um espaço entre as linhas semelhante ao letter-spacing do CSS (copiar) -->
 
 

@@ -6,4 +6,5 @@
     <string name="title_activity_story">StoryActivity</string>
     <string name="key_name">name</string>
     <string name="title_activity_story_list">StoryList</string>
+    <string name="title_activity_initialize">Initialize</string>
 </resources>
