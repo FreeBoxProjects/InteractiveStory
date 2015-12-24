@@ -1,0 +1,35 @@
+[33mcommit 2f2c63f7c21bcd1760cacc6381a0a642492886e6[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Mon Dec 21 10:37:06 2015 -0200
+
+    Added the initialize Activity
+
+[33mcommit b633490e2933e91a8b18e58bed1bf742d8807afd[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Fri Dec 18 13:19:29 2015 -0200
+
+    Now Users can chosse the tale they want
+
+[33mcommit 94e60241774f7b277d9874ff143bca3537a5c6cb[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Wed Dec 16 01:15:11 2015 -0200
+
+    Adding Some of the files of the List Functionality
+
+[33mcommit 69c59009bae9c61eaa9cc84b9cb033e8b446b4a8[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Wed Dec 16 01:13:22 2015 -0200
+
+    Created the Adapter and the List of Stories
+
+[33mcommit 554a9e1050581b1e092e7a4c2ff4641f8fda7e4a[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Mon Dec 14 15:17:42 2015 -0200
+
+    Added the points to the choices and the Player class
+
+[33mcommit 01f367949e6beaa03b07b03a4ab6507bf0cda98d[m
+Author: ScriptKidd <teodoro_henrique@outlook.com>
+Date:   Tue Dec 8 20:35:53 2015 -0200
+
+    First Commit

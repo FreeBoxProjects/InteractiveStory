@@ -3,7 +3,6 @@ package com.example.henrique.interactivestory.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.henrique.interactivestory.R;
 import com.example.henrique.interactivestory.model.Page;
@@ -60,7 +58,7 @@ public class StoryActivity extends AppCompatActivity {
         mImageView.setImageDrawable(drawable);
 
         String pageText = mPage.getText();
-        pageText = String.format(pageText, mName);
+        mTextView.setText(pageText);
 
         mPointsView.setText(mPoints + "");
 

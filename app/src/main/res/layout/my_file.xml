@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.example.henrique.interactivestory.ui.StoryActivity"
-                android:background="@android:color/white">
+                android:background="#ffffff">
 
     <!-- Serve para criar um espaço entre as linhas semelhante ao letter-spacing do CSS (copiar) -->
 
@@ -12,9 +12,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/storyImage"
         android:src="@drawable/ic_launcher"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_toLeftOf="@+id/storyTitle"
+        android:layout_toStartOf="@+id/storyTitle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,9 +26,11 @@
         android:id="@+id/storyTitle"
         android:textSize="20sp"
         android:padding="10dp"
-        android:layout_below="@+id/storyImage"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"/>
+        android:layout_above="@+id/description"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="62dp"
+        android:layout_marginEnd="59dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,10 +41,9 @@
         android:paddingRight="30dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:layout_alignTop="@+id/storyTitle"
+        android:layout_below="@+id/storyImage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,8 +55,8 @@
         android:textStyle="bold"
         android:padding="15dp"
         android:layout_below="@+id/description"
-        android:layout_toLeftOf="@+id/storyImage"
-        android:layout_toStartOf="@+id/storyImage"/>
+        android:layout_alignLeft="@+id/storyImage"
+        android:layout_alignStart="@+id/storyImage"/>
 
 
 

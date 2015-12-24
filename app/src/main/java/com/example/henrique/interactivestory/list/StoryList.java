@@ -27,8 +27,14 @@ public class StoryList extends Activity {
         Stories urano = new Stories(R.drawable.ic_launcher, "A viagem a uranu",
                 "Cleiton está de volta é um macaco muito loco que sempre sonhou em viajar pelo espaço, até que ele ganha uma chance, ele rouba uma nave e se aventura pelo espaço sideral", StoryActivity.class);
 
+        Stories plutão = new Stories(R.drawable.ic_launcher, "A viagem a uranu",
+                "Cleiton está de volta é um macaco muito loco que sempre sonhou em viajar pelo espaço, até que ele ganha uma chance, ele rouba uma nave e se aventura pelo espaço sideral", StoryActivity.class);
+
+        Stories sol = new Stories(R.drawable.ic_launcher, "A viagem a uranu",
+                "Cleiton está de volta é um macaco muito loco que sempre sonhou em viajar pelo espaço, até que ele ganha uma chance, ele rouba uma nave e se aventura pelo espaço sideral", StoryActivity.class);
+
         // Refazer denovo
-        Stories[] stories = {saturno, urano};
+        Stories[] stories = {saturno, urano, plutão, sol};
 
         ListView listView = (ListView)findViewById(R.id.storiesList);
         Adapter customAdapter = new Adapter(this, stories);
