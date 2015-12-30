@@ -14,13 +14,13 @@ public class Story {
         R.drawable.page0,
         "On your return trip from studying Saturn's rings, you hear a distress signal that seems to be coming from the surface of Mars. It's strange because there hasn't been a colony there in years. Even stranger, it's calling you by name: \"Help me, %1$s, you're my only hope.\"",
         // Iniciando a Choice adicionando pontos
-        new Choice("Stop and investigate", 1,100),
+        new Choice("Stop and investigate", 1),
         new Choice("Continue home to Earth", 2));
 
         mPages[1] = new Page(
         R.drawable.page1,
         "You deftly land your ship near where the distress signal originated. You didn't notice anything strange on your fly-by, but there is a cave in front of you. Behind you is an abandoned rover from the early 21st century.",
-        new Choice("Explore the cave", 3, 50),
+        new Choice("Explore the cave", 3),
         new Choice("Explore the rover", 4));
 
         mPages[2] = new Page(
@@ -39,16 +39,16 @@ public class Story {
         R.drawable.page4,
         "The rover is covered in dust and most of the solar panels are broken. But you are quite surprised to see the on-board system booted up and running. In fact, there is a message on the screen: \"%1$s, come to 28.543436, -81.369031.\" Those coordinates aren't far, but you don't know if your oxygen will last there and back.",
         // Iniciando a Choice Retirando pontos
-        new Choice("Explore the coordinates", 5,0, 50),
+        new Choice("Explore the coordinates", 5),
         new Choice("Return to Earth", 6));
 
         mPages[5] = new Page(
         R.drawable.page5,
-        "After a long walk slightly uphill, you end up at the top of a small crater. You look around, and are overjoyed to see your favorite android, %1$s-S1124. It had been lost on a previous mission to Mars! You take it back to your ship and fly back to Earth.");
+        "After a long walk slightly uphill, you end up at the top of a small crater. You look around, and are overjoyed to see your favorite android, %1$s-S1124. It had been lost on a previous mission to Mars! You take it back to your ship and fly back to Earth.", true);
 
         mPages[6] = new Page(
         R.drawable.page6,
-        "You arrive home on Earth. While your mission was a success, you forever wonder what was sending that signal. Perhaps a future mission will be able to investigate...");
+        "You arrive home on Earth. While your mission was a success, you forever wonder what was sending that signal. Perhaps a future mission will be able to investigate...", true);
         }
 
         public Page getPage(int pageNumber) {

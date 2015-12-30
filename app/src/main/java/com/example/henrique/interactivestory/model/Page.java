@@ -16,12 +16,20 @@ public class Page {
         mChoice2 = choice2;
     }
 
-    public Page(int imageId, String text) {
+    public Page(String text, Choice choice1, Choice choice2 ) {
+        mText = text;
+        mChoice1 = choice1;
+        mChoice2 = choice2;
+    }
+
+    public Page(int imageId, String text, boolean isFinal) {
         mImageId = imageId;
         mText = text;
         mChoice1 = null;
         mChoice2 = null;
-        mIsFinal = true;
+        if (isFinal == true) {
+            mIsFinal = true;
+        }
 
     }
 

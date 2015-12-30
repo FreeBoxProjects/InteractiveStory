@@ -9,15 +9,6 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".ui.Initialize"
-            android:label="@string/title_activity_initialize" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".list.StoryList"
             android:label="@string/title_activity_story_list" >
         </activity>
